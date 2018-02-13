@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>HTML5画星空的月亮-柯乐义</title>
+<style>
+canvas{display: block;border:1px dotted skyblue;}
+</style>
+</head>
+<body>
+<h1>HTML5画星空之月·柯乐义</h1>	
+<canvas id="canvas-keleyi-com" width="500" height="400"></canvas>
+<script>
+var nimo = {};
+window.onload = function () {
+nimo.canvas = document.getElementById('canvas-ke'+'leyi-com');
+nimo.context = nimo.canvas.getContext('2d');
+nimo.starBgImg = new Image();
+nimo.starBgImg.src = 'http://keleyi.com/keleyi/phtml/html5/22/star-bg.jpg';
+nimo.starBgImg.onload = function () {
+//填充星星背景
+nimo.statBg = nimo.context.createPattern(nimo.starBgImg, 'repeat')
+nimo.context.rect(0, 0, nimo.canvas.width, nimo.canvas.height);
+nimo.context.fillStyle = nimo.statBg;
+nimo.context.fill();
+//绘制月亮轮廓
+nimo.context.beginPath();
+nimo.context.arc(200, 200, 100, 0.6 * Math.PI, 1.3 * Math.PI);
+nimo.context.bezierCurveTo(140, 119, 93, 224, 169, 295)
+//填充月亮轮廓和设置投影
+nimo.context.shadowColor = "blue";
+nimo.context.shadowBlur = 3;
+nimo.context.strokeStyle = "blue";
+nimo.context.stroke();
+//填充放射渐变给月亮
+nimo.radialGradient = nimo.context.createRadialGradient(150, 200, 0, 150, 200, 50);
+nimo.radialGradient.addColorStop(0, 'white')
+nimo.radialGradient.addColorStop(1, '#999')
+nimo.context.fillStyle = nimo.radialGradient;
+nimo.context.fill()
+//绘制月亮的研究和嘴巴	
+nimo.context.shadowColor = "white";
+nimo.context.beginPath();
+nimo.context.moveTo(110, 173);
+nimo.context.lineTo(114, 173);
+nimo.context.moveTo(119, 173);
+nimo.context.lineTo(123, 173);
+nimo.context.stroke();
+nimo.context.beginPath();
+nimo.context.arc(116, 183, 2, 0, 2 * Math.PI);
+nimo.context.stroke();
+nimo.context.shadowColor = 'transparent';
+nimo.context.font = "15px 微软雅黑"
+nimo.context.fillText('您好，我是月亮，祝您的美梦像星星一样永恒!', 100, 100)//设置文字及在图片上的位置
+}
+}
+</script>
+</body>
+</html>

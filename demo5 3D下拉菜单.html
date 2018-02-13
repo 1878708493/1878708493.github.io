@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<title> CSS3+jQuery实现3D下拉菜单-柯乐义</title><base target="_blank" />
+<link rel="stylesheet" href="http://keleyi.com/keleyi/phtml/css3menu/index/css/style.css">
+</head>
+<body>
+
+<header class="header">
+<hgroup>
+<h1>3D下拉菜单</h1>
+<h2>CSS3+jQuery实现CSS 3D动画效果</h2>
+</hgroup>
+</header>
+
+<section class="demo">
+
+<dl class="list nigiri">
+<dt>内容导航</dt>
+<dd><a href="http://keleyi.com/menu/net/" >.NET</a></dd><dd><a href="http://keleyi.com/menu/javascript/" >Javascript</a></dd><dd><a href="http://keleyi.com/menu/jquery/" >jQuery</a></dd><dd><a href="http://keleyi.com/menu/csharp/" >C#</a></dd><dd><a href="http://keleyi.com/menu/aspnet/" >ASP.NET</a></dd><dd><a href="http://keleyi.com/menu/mvc/" >MVC</a></dd><dd><a href="http://keleyi.com/menu/html5/" >HTML5</a></dd>
+<dd><a href="http://keleyi.com/menu/webqd/" >web前端</a></dd><dd><a href="http://keleyi.com/menu/cpp/" >C++</a></dd>
+<dd><a href="http://keleyi.com/menu/flhz/">分类汇总</a></dd>
+</dl>
+
+<dl class="list maki">
+<dt>游戏</dt>
+<dd><a href="http://keleyi.com/">Home</a></dd>
+<dd><a href="http://keleyi.com/about/">About</a></dd>
+<dd><a href="http://keleyi.com/game/1/">捕鱼</a></dd>
+<dd><a href="http://keleyi.com/a/bjac/kjsrt3b0.htm">jQuery AJAX</a></dd>
+<dd><a href="http://keleyi.com/a/bjac/182di68b.htm">导航样式</a></dd>
+<dd><a href="http://keleyi.com/a/bjac/mt97p5y9.htm">侧边导航</a></dd>
+<dd><a href="http://keleyi.com/dev/3068696139522ae4.htm">树形菜单</a></dd>
+<dd><a href="http://keleyi.com/game/4/">美女拼图</a></dd>
+<dd><a href="http://keleyi.com/keleyi/phtml/silverlight/">猜数字</a></dd>
+<dd><a href="http://keleyi.com/game/2/">不上不下</a></dd>
+<dd><a href="http://keleyi.com/game/3/">打地鼠</a></dd>
+
+
+</dl>
+
+<dl class="list sashimi">
+<dt>更多特效</dt>
+<dd><a href="http://keleyi.com/a/bjac/mt97p5y9.htm">侧边导航栏</a></dd><dd><a href="http://keleyi.com/a/bjac/phhq4ecr.htm">当前时间</a></dd>
+<dd><a href="http://keleyi.com/a/bjac/1juhjegr.htm">替换图片</a></dd><dd><a href="http://keleyi.com/a/bjac/c6gu08gm.htm" title="jQuery友善的图片轮播(含首页和尾页)">图片轮播</a></dd><dd><a href="http://keleyi.com/a/bjac/opnw2awa.htm">appendTo方法</a></dd>
+<dd><a href="http://keleyi.com/a/bjac/0vpch15n.htm">jQ的append</a></dd><dd><a href="http://keleyi.com/a/bjac/cfyxd60g.htm">jQ的after</a></dd>
+<dd><a href="http://keleyi.com/a/bjac/m9xwhxv2.htm">判断是否为空</a></dd><dd><a href="http://keleyi.cn">三级菜单</a></dd><dd><a href="http://keleyi.com/a/bjac/mnmpm4bv.htm">图片走马灯</a></dd><dd><a href="http://keleyi.com/a/bjac/90b914o0.htm">jQ的toggle</a></dd>
+
+
+</dl>
+
+<a href="javascript:;" class="toggle" target="_self">菜单开关</a>
+
+</section>
+<div class="warning">
+<div class="message">
+<h1>浏览器不支持CSS 3D效果</h1>
+<p>浏览器不支持CSS 3D效果，请使用chrome或Firefox浏览器查看本页。</p>
+</div>
+</div>
+<div style="width:100%;height:100%;background:orange"><br /><br /><br /><br /><br /><a href="http://keleyi.com/a/bjac/e7i8pvwq.htm">http://keleyi.com/a/bjac/e7i8pvwq.htm</a></div>
+<a href="http://keleyi.com" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://keleyi.com/keleyi/phtml/css3menu/index/keleyi_right_darkblue.png" alt="柯乐义"></a>
+
+<script type="text/javascript" src="http://keleyi.com/keleyi/pmedia/jquery/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://keleyi.com/keleyi/phtml/css3menu/index/js/makisu.min.js"></script>
+<script type="text/javascript">
+
+// The `enabled` flag will be `false` if CSS 3D isn't available
+
+if ( $.fn.makisu.enabled ) {
+
+var $sashimi = $( '.sashimi' );
+var $nigiri = $( '.nigiri' );
+var $maki = $( '.maki' );
+
+// Create Makisus
+
+$nigiri.makisu({
+selector: 'dd',
+overlap: 0.85,
+speed: 1.7
+});
+
+$maki.makisu({
+selector: 'dd',
+overlap: 0.6,
+speed: 0.85
+});
+
+$sashimi.makisu({
+selector: 'dd',
+overlap: 0.2,
+speed: 0.5
+});
+
+// Open all
+
+$( '.list' ).makisu( 'open' );
+
+// Toggle on click
+
+$( '.toggle' ).on( 'click', function() {
+$( '.list' ).makisu( 'toggle' );
+});
+
+} else {
+
+$( '.warning' ).show();
+}
+
+</script>
+</body>
+</html>
